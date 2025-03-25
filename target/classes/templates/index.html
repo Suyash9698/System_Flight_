@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th = "http://www.thymeLeaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+   
+    <title>Suyash Khare | FlyHighHub</title>
+    
+    
+   <!-- Include Animate.css for animations -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+<!-- Replace the old SweetAlert library with SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+   
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+:root {
+  --primary-color: #e82574;
+  --primary-color-dark: #bc1c5c;
+  --text-dark: #0c0a09;
+  --text-light: #78716c;
+  --white: #ffffff;
+  --max-width: 1200px;
+}
+
+
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.section__container {
+  max-width: var(--max-width);
+  margin: auto;
+  padding: 5rem 1rem;
+}
+
+.section__subheader {
+  margin-bottom: 0.5rem;
+  position: relative;
+  font-weight: 500;
+  letter-spacing: 2px;
+  color: var(--text-dark);
+}
+
+.section__subheader::after {
+  position: absolute;
+  content: "";
+  top: 50%;
+  transform: translate(1rem, -50%);
+  height: 2px;
+  width: 4rem;
+  background-color: var(--primary-color);
+}
+
+.section__header {
+  max-width: 600px;
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
+  font-weight: 600;
+  line-height: 3rem;
+  color: var(--text-dark);
+}
+
+.section__description {
+  max-width: 600px;
+  margin-bottom: 1rem;
+  color: var(--text-light);
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  outline: none;
+  border: none;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--white);
+  background-color: var(--primary-color);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background-color: var(--primary-color-dark);
+}
+
+img {
+  width: 100%;
+  display: flex;
+}
+
+a {
+  text-decoration: none;
+}
+
+.logo {
+  max-width: 120px;
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.header {
+  background-image: url("assets/extra.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+nav {
+  position: fixed;
+  isolation: isolate;
+  top: 0;
+  width: 100%;
+  max-width: var(--max-width);
+  margin: auto;
+  z-index: 9;
+}
+
+.nav__bar {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  background-color: var(--primary-color);
+}
+
+.nav__menu__btn {
+  font-size: 1.5rem;
+  color: var(--white);
+  cursor: pointer;
+}
+
+.nav__links {
+  list-style: none;
+  position: absolute;
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+  background-color: rgba(188, 28, 92, 0.9);
+  transform: translateY(-100%);
+  transition: 0.5s;
+  z-index: -1;
+}
+
+.nav__links.open {
+  transform: translateY(0);
+}
+
+.nav__links a {
+  position: relative;
+  isolation: isolate;
+  padding-bottom: 8px;
+  color: var(--white);
+  transition: 0.3s;
+}
+
+.nav__btn {
+  display: none;
+}
+
+.header__container {
+  padding-block: 10rem 15rem;
+}
+
+.header__container p {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  color: var(--white);
+  text-align: center;
+  opacity: 0.6;
+}
+
+.header__container h1 {
+  font-size: 4rem;
+  font-weight: 500;
+  line-height: 4.5rem;
+  color: var(--white);
+  text-align: center;
+}
+
+.header__container h1 span {
+  color: var(--primary-color);
+}
+
+.booking__container {
+  padding-block: 0;
+}
+
+.booking__form {
+  padding: 2rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: var(--white);
+  border-radius: 10px;
+  transform: translateY(-50%);
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.input__group {
+  flex: 1 1 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.input__group span {
+  font-size: 1.75rem;
+  color: var(--primary-color);
+}
+
+.input__group label {
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+.input__group input {
+  display: block;
+  width: 100%;
+  max-width: 150px;
+  padding-block: 5px;
+  color: var(--text-dark);
+  font-size: 0.9rem;
+  outline: none;
+  border: none;
+}
+
+.input__group input::placeholder {
+  color: var(--text-light);
+}
+
+.about__container {
+  overflow: hidden;
+  display: grid;
+  gap: 2rem;
+}
+
+.about__image img {
+  max-width: 450px;
+  margin: auto;
+  border-radius: 5px;
+}
+
+.room__grid {
+  margin-top: 4rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.room__card {
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.room__card__image {
+  position: relative;
+  isolation: isolate;
+}
+
+.room__card__icons {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 1rem;
+  z-index: 1;
+}
+
+.room__card__icons span {
+  display: inline-block;
+  padding: 2px 8px;
+  font-size: 1.5rem;
+  background-color: var(--white);
+  border-radius: 100%;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.room__card__icons span:nth-child(1) {
+  color: #f472b6;
+}
+
+.room__card__icons span:nth-child(2) {
+  color: #c084fc;
+}
+
+.room__card__icons span:nth-child(3) {
+  color: #60a5fa;
+}
+
+.room__card__details {
+  padding: 1rem;
+}
+
+.room__card h4 {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+.room__card p {
+  margin-bottom: 0.5rem;
+  color: var(--text-light);
+}
+
+.room__card h5 {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-light);
+}
+
+.room__card h5 span {
+  font-size: 1.1rem;
+  color: var(--text-dark);
+}
+
+.service {
+  background-image: url("assets/reception.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.service__container {
+  padding-block: 0;
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.service__content {
+  grid-column: 1/3;
+  padding: 2rem 4rem;
+  background-color: var(--white);
+}
+
+.service__list {
+  list-style: none;
+  margin-top: 2rem;
+  display: grid;
+  gap: 2rem;
+}
+
+.service__list li {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+.service__list span {
+  padding: 5px 12px;
+  font-size: 1.75rem;
+  color: var(--text-dark);
+  background-color: var(--text-light);
+  border-radius: 100%;
+}
+
+.service__list li:nth-child(1) span {
+  color: #60a5fa;
+  background-color: #dbeafe;
+}
+
+.service__list li:nth-child(2) span {
+  color: #f472b6;
+  background-color: #fce7f3;
+}
+
+.service__list li:nth-child(3) span {
+  color: #c084fc;
+  background-color: #f3e8ff;
+}
+
+.service__list li:nth-child(4) span {
+  color: #fb7185;
+  background-color: #ffe4e6;
+}
+
+.banner__content {
+  padding: 2rem;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  border-radius: 10px;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.banner__card {
+  text-align: center;
+  flex: 1 1 180px;
+}
+
+.banner__card h4 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.banner__card p {
+  color: var(--text-light);
+}
+
+.explore :is(.section__subheader, .section__header) {
+  text-align: center;
+  margin-inline: auto;
+}
+
+.explore__bg {
+  margin-top: 4rem;
+  padding-block: 3rem;
+  display: grid;
+  grid-template-columns:
+    minmax(1rem, 1fr)
+    minmax(0, var(--max-width))
+    minmax(1rem, 1fr);
+  background-image: url("assets/explore.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.explore__content {
+  grid-column: 2/3;
+  max-width: 400px;
+  padding: 2rem;
+  background-color: var(--white);
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.explore__content p {
+  margin-bottom: 0.5rem;
+}
+
+.explore__content h4 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.5rem;
+  color: var(--text-dark);
+}
+
+.explore__content .btn {
+  color: var(--primary-color);
+  background-color: var(--white);
+  border: 1px solid var(--primary-color);
+}
+
+.explore__content .btn:hover {
+  color: var(--white);
+  background-color: var(--primary-color);
+}
+
+.footer {
+  background-color: var(--text-dark);
+}
+
+.footer__container {
+  display: grid;
+  gap: 4rem 2rem;
+}
+
+.footer__col .section__description {
+  margin-block: 2rem;
+}
+
+.footer__col h4 {
+  margin-bottom: 2rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--white);
+}
+
+.footer__links {
+  list-style: none;
+  display: grid;
+  gap: 1rem;
+}
+
+.footer__links a {
+  color: var(--text-light);
+  transition: 0.3s;
+}
+
+.footer__links a:hover {
+  color: var(--white);
+}
+
+.footer__socials {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.footer__socials img {
+  max-width: 25px;
+  opacity: 0.8;
+  transition: 0.3s;
+}
+
+.footer__socials img:hover {
+  opacity: 1;
+}
+
+.footer__bar {
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: var(--text-light);
+  text-align: center;
+}
+
+@media (width > 576px) {
+  .room__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer__container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width > 768px) {
+  nav {
+    padding: 2rem 1rem;
+    position: static;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav__bar {
+    padding: 0;
+    background-color: transparent;
+  }
+
+  .nav__menu__btn {
+    display: none;
+  }
+
+  .nav__links {
+    padding: 0;
+    width: unset;
+    position: static;
+    transform: none;
+    flex-direction: row;
+    background-color: transparent;
+  }
+
+  .nav__btn {
+    display: block;
+  }
+
+  .nav__links a::after {
+    position: absolute;
+    content: "";
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0;
+    background-color: var(--primary-color);
+    transition: 0.3s;
+    transform-origin: left;
+  }
+
+  .nav__links a:hover::after {
+    width: 100%;
+  }
+
+  .about__container {
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+  }
+
+  .room__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .service__content {
+    grid-column: 2/3;
+  }
+
+  .footer__container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+
+
+@media (width > 1024px) {
+  .room__grid {
+    gap: 2rem;
+  }
+}
+
+  .swal2-toast {
+    font-family: "Poppins", sans-serif;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  .toast-popup {
+    padding: 15px;
+  }
+  
+  
+  
+  
+  .popup {
+        width: 400px;
+        background: #fff;
+        border-radius: 6px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(1);
+        text-align: center;
+        padding: 0 30px 30px;
+        color: #333;
+        visibility: hidden; /* Hidden initially */
+        transition: transform 0.4s ease, top 0.4s ease;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        z-index: 999;
+      }
+      /* Class to hide popup */
+      .close-popup {
+        visibility: hidden;
+        top: 0;
+        transform: translate(-50%, -50%) scale(0.1);
+      }
+      /* Class to open popup */
+      .open-popup {
+        visibility: visible;
+        top: 50%;
+        transform: translate(-50%, -50%) scale(1);
+      }
+      
+      
+      .popup2 {
+      z-index: 9999;
+        width: 400px;
+        background: #fff;
+        border-radius: 6px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(1);
+        text-align: center;
+        padding: 0 30px 30px;
+        color: #333;
+        visibility: hidden; /* Hidden initially */
+        transition: transform 0.4s ease, top 0.4s ease;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        z-index: 999;
+      }
+      
+      /* Class to hide popup */
+      .close-popup2 {
+        visibility: hidden;
+        top: 0;
+        transform: translate(-50%, -50%) scale(0.1);
+      }
+      /* Class to open popup */
+      .open-popup2 {
+        visibility: visible;
+        top: 50%;
+        transform: translate(-50%, -50%) scale(1);
+      }
+      .popup img {
+        width: 100px;
+        margin-left:35%;
+        margin-top: -50px;
+        border-radius: 50%;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      }
+      .popup h2 {
+        font-size: 38px;
+        font-weight: 500;
+        margin: 30px 0 10px;
+      }
+      .popup p {
+        font-size: 16px;
+        color: #333;
+      }
+      .popup button {
+        width: 100%;
+        margin-top: 50px;
+        padding: 10px 0;
+        background: #6fd649;
+        font-size: 18px;
+        cursor: pointer;
+        border-radius: 4px;
+        color: #fff;
+        border: 0;
+        outline: none;
+        box-shadow: 0 5px 5px rgba(0,0,0,0.2);
+      }
+      
+      
+      
+      
+      .popup2 img {
+        width: 100px;
+        margin-left:35%;
+        margin-top: -50px;
+        border-radius: 50%;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      }
+      .popup2 h2 {
+        font-size: 38px;
+        font-weight: 500;
+        margin: 30px 0 10px;
+      }
+      .popup2 p {
+        font-size: 16px;
+        color: #333;
+      }
+      .popup2 button {
+        width: 100%;
+        margin-top: 50px;
+        padding: 10px 0;
+        background: #FF4633;
+        font-size: 18px;
+        cursor: pointer;
+        border-radius: 4px;
+        color: #fff;
+        border: 0;
+        outline: none;
+        box-shadow: 0 5px 5px rgba(0,0,0,0.2);
+      }
+      
+      
+ /* Blur the background but NOT the popups */
+
+
+
+.blur{
+
+}
+      
+      
+    </style>
+  </head>
+  <body>
+  
+  
+  
+   <!-- Popup HTML (initially hidden using "close-popup") -->
+    <div class="popup close-popup" id="popup">
+      <!-- Success image always remains the same -->
+      <img id="popup-icon" th:src="@{/Images/tick.png}" alt="Success Icon" />
+
+      <h2 id="popup-title">Thank You!</h2>
+      <p id="popup-text"></p> <!-- Message will be set dynamically -->
+      <button type="button" onclick="closePopUp()">Ok</button>
+    </div>
+    
+    
+     <!-- Popup HTML (initially hidden using "close-popup") -->
+    <div class="popup2 close-popup2" id="popup2">
+      <!-- Success image always remains the same -->
+      <img id="popup-icon2" th:src="@{/Images/war.gif}" alt="Warning Icon" />
+
+      <h2 id="popup-title2">Warning!</h2>
+      <p id="popup-text2"></p> <!-- Message will be set dynamically -->
+      <button type="button" onclick="closePopUp2()">Ok</button>
+    </div>
+    
+     
+  
+  
+  
+  
+   <!-- Include your scripts here -->
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        // Check if there's a message in the flash attributes
+        var message = /*[[${message}]]*/ null;
+        
+        console.log(message);
+        if (message && message.trim().length > 0) {
+        
+        
+       
+       
+       let toastType = "error";        // default icon is "error"
+        let backgroundColor = "#fffff"; // default red background
+
+        // Display the message using SweetAlert
+        if (message === "Please Enter valid credentials!!!" 
+            || message === "Email is already registered" 
+            || message === "Passwords do not match"
+            || message === "Invalid email format." 
+            || message === "Please Enter Valid OTP" 
+            || message === "Email is not registered with us"
+            || message === "Please Log In First!" 
+            || message === "Password is too small!"
+            ) {
+
+          
+        
+         var popup2 = document.getElementById("popup2");
+          var popupText2 = document.getElementById("popup-text2");
+
+          // Set the message dynamically
+          popupText2.innerText = message;
+          
+          document.body.classList.add("body-blur");
+
+          // Show the popup by removing the close-popup class and updating styles
+          popup2.classList.add("open-popup2");
+          
+          
+        
+        
+        
+        
+            } else {
+                 var popup = document.getElementById("popup");
+          var popupText = document.getElementById("popup-text");
+
+          // Set the message dynamically
+          popupText.innerText = message;
+
+          // Show the popup by removing the close-popup class and updating styles
+          popup.classList.add("open-popup");
+          // document.body.classList.add("body-blur");
+          
+            }
+        }
+        /*]]>*/
+    </script>
+    
+    
+     <script>
+      function closePopUp() {
+          var popup = document.getElementById("popup");
+         
+          popup.classList.add("close-popup");
+          popup.classList.remove("open-popup");
+          
+      }
+      
+      function closePopUp2() {
+          var popup = document.getElementById("popup2");
+          
+          popup.classList.add("close-popup2");
+          popup.classList.remove("open-popup2");
+          
+      }
+    </script>
+    
+   <header  class="header" th:style="'background-image: url(' + @{/Images/extra.jpg} + ');'">
+      <nav>
+        <div class="nav__bar">
+          <div class="logo">
+          
+            <a href="#"><img th:src="@{Images/fly.jpeg}" alt="FlyHighHub logo" style="width: 50px;height: 50px;" /></a>
+          </div>
+          <div class="nav__menu__btn" id="menu-btn">
+            <i class="ri-menu-line"></i>
+          </div>
+        </div>
+        <ul class="nav__links" id="nav-links">
+          <li style="color:black"><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#service">Services</a></li>
+          <li><a href="#explore">Explore</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="btn nav__btn" th:onclick="'window.location.href=\'' + @{/index_B} + '\''">Login/Register</button>
+
+      </nav>
+      <div class="section__container header__container" id="home">
+        <p >  Simple - Convenient - Trusted </p>
+        <h1>Book Flight with <span>FlyHighHub.com!</span></h1>
+      </div>
+    </header>
+
+    <section class="section__container booking__container">
+      <form action="/index_B" class="booking__form" method="get">
+  <div class="input__group">
+    <span><i class="ri-calendar-2-fill"></i></span>
+    <div>
+      <label for="departure">DEPARTURE</label>
+      <input type="date" placeholder="Departure Date" name="departure" required />
+    </div>
+  </div>
+  <div class="input__group">
+    <span><i class="ri-calendar-2-fill"></i></span>
+    <div>
+      <label for="return">RETURN</label>
+      <input type="date" placeholder="Return Date" name="return" required />
+    </div>
+  </div>
+  <div class="input__group">
+    <span><i class="ri-user-fill"></i></span>
+    <div>
+      <label for="passengers">PASSENGERS</label>
+      <input type="number" placeholder="Number of Passengers" name="passengers" required />
+    </div>
+  </div>
+  <div class="input__group input__btn">
+    <button type="submit" class="btn">Search Flights</button>
+  </div>
+</form>
+
+    </section>
+
+    <section class="section__container about__container" id="about">
+      <div class="about__image">
+        <img th:src="@{Images/about.jpg}" alt="about FlyHighHub" />
+      </div>
+      <div class="about__content">
+        <p class="section__subheader">ABOUT US</p>
+        <h2 class="section__header">Your Journey Begins with Us!</h2>
+        <p class="section__description">
+          FlyHighHub is dedicated to making air travel easier, offering you an intuitive platform for booking flights with ease and reliability. Whether it’s for business or leisure, start your journey with us and enjoy unparalleled service.
+        </p>
+        <div class="about__btn">
+          <button class="btn" th:onclick="'window.location.href=\'' + @{/index_B} + '\''">Learn More</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section__container room__container">
+      <p class="section__subheader">FLIGHT CLASSES</p>
+      <h2 class="section__header">Experience Comfort and Style.</h2>
+      <div class="room__grid">
+        <div class="room__card">
+          <div class="room__card__image">
+            <img th:src="@{Images/business.jpg}" alt="First Class" />
+            <div class="room__card__icons">
+              <span><i class="ri-heart-fill"></i></span>
+              <span><i class="ri-paint-fill"></i></span>
+              <span><i class="ri-shield-star-line"></i></span>
+            </div>
+          </div>
+          <div class="room__card__details">
+            <h4>First Class</h4>
+            <p>
+              Indulge in ultimate luxury with personalized service and spacious seating.
+            </p>
+            <h5>Starting from <span>$999</span></h5>
+            <button class="btn" th:onclick="'window.location.href=\'' + @{/index_B} + '\''">Book Now</button>
+          </div>
+        </div>
+        <div class="room__card">
+          <div class="room__card__image">
+            <img th:src="@{Images/first.jpg}" alt="Business Class" />
+            <div class="room__card__icons">
+              <span><i class="ri-heart-fill"></i></span>
+              <span><i class="ri-paint-fill"></i></span>
+              <span><i class="ri-shield-star-line"></i></span>
+            </div>
+          </div>
+          <div class="room__card__details">
+            <h4>Business Class</h4>
+            <p>
+              Fly in comfort with ample legroom, gourmet meals, and excellent service.
+            </p>
+            <h5>Starting from <span>$599</span></h5>
+            <button class="btn" th:onclick="'window.location.href=\'' + @{/index_B} + '\''">Book Now</button>
+          </div>
+        </div>
+        <div class="room__card">
+          <div class="room__card__image">
+            <img th:src="@{Images/economy.jpg}" alt="Economy Class" />
+            <div class="room__card__icons">
+              <span><i class="ri-heart-fill"></i></span>
+              <span><i class="ri-paint-fill"></i></span>
+              <span><i class="ri-shield-star-line"></i></span>
+            </div>
+          </div>
+          <div class="room__card__details">
+            <h4>Economy Class</h4>
+            <p>
+              Enjoy a comfortable and affordable journey in our modern Economy Class.
+            </p>
+            <h5>Starting from <span>$199</span></h5>
+            <button class="btn" th:onclick="'window.location.href=\'' + @{/index_B} + '\''">Book Now</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+   <section class="service" id="service" th:style="'background-image: url(' + @{/Images/reception.jpg} + ');'">
+      <div class="section__container service__container">
+        <div class="service__content">
+          <p class="section__subheader">SERVICES</p>
+          <h2 class="section__header">Exceeding Your Expectations.</h2>
+          <ul class="service__list">
+            <li>
+              <span><i class="ri-shield-star-line"></i></span>
+              Top-Notch Security
+            </li>
+            <li>
+              <span><i class="ri-24-hours-line"></i></span>
+              24/7 Customer Support
+            </li>
+            <li>
+              <span><i class="ri-headphone-line"></i></span>
+              In-Flight Entertainment
+            </li>
+            <li>
+              <span><i class="ri-map-2-line"></i></span>
+              Travel Assistance
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section__container banner__container">
+      <div class="banner__content">
+        <div class="banner__card">
+          <h4>50+</h4>
+          <p>Destinations Worldwide</p>
+        </div>
+        <div class="banner__card">
+          <h4>1,000+</h4>
+          <p>Flights Booked</p>
+        </div>
+        <div class="banner__card">
+          <h4>5,000+</h4>
+          <p>Satisfied Customers</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="explore" id="explore">
+      <p class="section__subheader">EXPLORE</p>
+      <h2 class="section__header">New Routes and Offers.</h2>
+      <div class="explore__bg" th:style="'background-image: url(' + @{/Images/explore.jpg} + ');'">
+        <div class="explore__content">
+          <p class="section__description">15th NOV 2023</p>
+          <h4>Exclusive Deals for International Destinations</h4>
+          <button class="btn">Learn More</button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer" id="contact">
+      <div class="section__container footer__container">
+        <div class="footer__col">
+          <div class="logo">
+            <a href="#home"><img th:src="@{Images/fly.jpeg}" alt="FlyHighHub logo" /></a>
+          </div>
+          <p class="section__description">
+            FlyHighHub connects you to a world of destinations with seamless booking and unmatched travel experiences. Start your adventure with us today.
+          </p>
+          <button class="btn" th:onclick="'window.location.href=\'' + @{/index_B} + '\''">Book Flight</button>
+        </div>
+        <div class="footer__col">
+          <h4>QUICK LINKS</h4>
+          <ul class="footer__links">
+            <li><a href="#">Popular Destinations</a></li>
+            <li><a href="#">Special Offers & Discounts</a></li>
+            <li><a href="#">Travel Classes</a></li>
+            <li><a href="#">Customer Testimonials</a></li>
+            <li><a href="#">Travel Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>OUR SERVICES</h4>
+          <ul class="footer__links">
+            <li><a href="#">In-Flight Wi-Fi</a></li>
+            <li><a href="#">Flexible Cancellation Policies</a></li>
+            <li><a href="#">Airport Lounge Access</a></li>
+            <li><a href="#">Baggage Support</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>CONTACT US</h4>
+          <ul class="footer__links">
+            <li><a href="#">support@flyhighhub.com</a></li>
+          </ul>
+          <div class="footer__socials">
+            <a href="#"><img th:src="@{Images/facebook.png}" alt="facebook" /></a>
+            <a href="#"><img th:src="@{Images/instagram.png}" alt="instagram" /></a>
+            <a href="#"><img th:src="@{Images/youtube.png}" alt="youtube" /></a>
+            <a href="#"><img th:src="@{Images/twitter.png}" alt="twitter" /></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bar">
+        Copyright © 2023 FlyHighHub. All rights reserved.
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script>
+    const menuBtn = document.getElementById("menu-btn");
+const navLinks = document.getElementById("nav-links");
+const menuBtnIcon = menuBtn.querySelector("i");
+
+menuBtn.addEventListener("click", () => {
+  navLinks.classList.toggle("open");
+
+  const isOpen = navLinks.classList.contains("open");
+  menuBtnIcon.setAttribute("class", isOpen ? "ri-close-line" : "ri-menu-line");
+});
+
+navLinks.addEventListener("click", () => {
+  navLinks.classList.remove("open");
+  menuBtnIcon.setAttribute("class", "ri-menu-line");
+});
+
+const scrollRevealOption = {
+  distance: "50px",
+  origin: "bottom",
+  duration: 1000,
+};
+
+// header container
+ScrollReveal().reveal(".header__container p", {
+  ...scrollRevealOption,
+});
+
+ScrollReveal().reveal(".header__container h1", {
+  ...scrollRevealOption,
+  delay: 500,
+});
+
+// about container
+ScrollReveal().reveal(".about__image img", {
+  ...scrollRevealOption,
+  origin: "left",
+});
+
+ScrollReveal().reveal(".about__content .section__subheader", {
+  ...scrollRevealOption,
+  delay: 500,
+});
+
+ScrollReveal().reveal(".about__content .section__header", {
+  ...scrollRevealOption,
+  delay: 1000,
+});
+
+ScrollReveal().reveal(".about__content .section__description", {
+  ...scrollRevealOption,
+  delay: 1500,
+});
+
+ScrollReveal().reveal(".about__btn", {
+  ...scrollRevealOption,
+  delay: 2000,
+});
+
+// room container
+ScrollReveal().reveal(".room__card", {
+  ...scrollRevealOption,
+  interval: 500,
+});
+
+// service container
+ScrollReveal().reveal(".service__list li", {
+  ...scrollRevealOption,
+  interval: 500,
+  origin: "right",
+});
+    
+    </script>
+
+  </body>
+</html>

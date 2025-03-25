@@ -1,0 +1,1937 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th = "http://www.thymeLeaf.org">
+
+<head>
+   
+    <title>Responsive</title>
+     <!-- Boxicons CSS -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
+      rel="stylesheet"
+    /> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" ></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js" ></script>
+    
+    <link rel="stylesheet" th:href="@{/css/about.css}">
+     <link rel="stylesheet" th:href="@{/css/services.css}">
+     <link rel="stylesheet" th:href="@{/css/contact.css}">
+    <link rel="stylesheet" th:href="@{/css/profile.css}">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    
+    
+    <!-- ======= Styles ====== -->
+    <style>
+        /* =========== Google Fonts ============ */
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
+
+/* =============== Globals ============== */
+* {
+  font-family: "Ubuntu", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+input[type=date]:required:invalid::-webkit-datetime-edit {
+    color: transparent;
+}
+input[type=date]:focus::-webkit-datetime-edit {
+    color: black !important;
+}
+
+:root {
+  --primary-color: #3d5cb8;
+  --primary-color-dark: #334c99;
+  --text-dark: #0f172a;
+  --text-light: #64748b;
+  --extra-light: #f1f5f9;
+  --white: #ffffff;
+  --max-width: 1200px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.section__container {
+  
+  margin: auto;
+  padding: 5rem 1rem;
+  
+}
+
+.section__header {
+  font-size: 2.5rem;
+  font-weight: 600;
+  line-height: 3rem;
+  color: var(--text-dark);
+}
+
+.button {
+    padding: 2rem;
+  outline: none;
+  border: none;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--white);
+  border-radius: 5px;
+  cursor: pointer;
+  
+  background:linear-gradient(to right,#ff105f,#ffad06);
+  border-radius: 30px;
+  transition: .5s;
+  
+}
+
+.button:hover {
+  background-color: var(--primary-color-dark);
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+  display: flex;
+  
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+
+
+
+.booking__container {
+  border-radius: 3rem;
+  border: 1px solid var(--extra-light);
+  box-shadow: 51px 5px 30px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  margin:15px;
+  margin-top:10%;
+}
+
+
+
+.booking__nav {
+  max-width: 600px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  background:linear-gradient(to right,#ff105f,#ffad06);
+  border-radius: 30px;
+  transition: .5s;
+}
+
+.booking__nav span{
+  flex: 1;
+  padding: 1rem 2rem;
+  font-weight: 500;
+  color: var(--text-light);
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.booking__nav span:nth-child(1) {
+  color: var(--white);
+  background-color: var(--primary-color);
+  background:linear-gradient(to right,#ff105f,#ffad06);
+  border-radius: 30px;
+  transition: .5s;
+  
+}
+.booking__nav span.active {
+  /* Styles when the span is active (clicked) */
+  color: var(--white);
+  background-color: var(--primary-color);
+  background:linear-gradient(to right,#ff105f,#ffad06);
+  border-radius: 30px;
+  transition: .5s;
+}
+
+.booking__container form {
+  margin-top: 4rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr) auto;
+  gap: 1rem;
+}
+
+.booking__container .input__content {
+  width: 100%;
+}
+
+.booking__container .form__group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.booking__container .form__group span {
+  padding: 10px;
+  font-size: 1.5rem;
+  color: var(--text-dark);
+  background-color: var(--extra-light);
+  border-radius: 1rem;
+}
+
+.booking__container .input__group {
+  width: 100%;
+  position: relative;
+}
+
+.booking__container label {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  pointer-events: none;
+  transition: 0.3s;
+}
+
+.booking__container input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 1rem;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid var(--primary-color);
+  color: var(--text-dark);
+}
+
+.booking__container input:focus ~ label {
+  font-size: 0.8rem;
+  top: 0;
+}
+
+.booking__container .form__group p {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--text-light);
+}
+
+.booking__container .form__group__dup {
+  margin-top: 0.5rem;
+  font-size: 1.0rem;
+  color: var(--text-light);
+  display: flex;
+    align-items: center;
+}
+
+.booking__container .button {
+  padding: 1rem;
+  font-size: 1.5rem;
+  width:100
+}
+
+
+
+:root {
+  --blue: #2a2185;
+  --white: #fff;
+  --gray: #f5f5f5;
+  --black1: #222;
+  --black2: #999;
+}
+
+body {
+  min-height: 100vh;
+  
+}
+
+.container {
+  position: relative;
+  width: 100%;
+}
+
+/* =============== Navigation ================ */
+.header{
+  
+  
+  height: 100%;
+  background: #fff;
+  width:100%;
+  /* border-left: 10px solid var(--blue); */
+  transition: 0.5s;
+  overflow: hidden;
+  text-align: center;
+  align-items: center;
+  color:black;
+  padding: 10px ;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  border-radius: 10px;
+  display: flex;
+  
+}
+
+.footer {
+    position: fixed;
+  width: 100%;
+  height: 7%;
+  bottom:0;
+  background: var(--black1);
+  border-left: 10px solid var(--black1);
+  transition: 0.5s;
+  overflow: hidden;
+ 
+  color:white;
+  padding: 10px;
+    }
+.navigation {
+  position: fixed;
+  width: 300px;
+  height: 100%;
+  background: var(--blue);
+  border-left: 10px solid var(--blue);
+  transition: 0.5s;
+  overflow: hidden;
+}
+.navigation.active {
+  width: 80px;
+}
+
+.navigation ul {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.navigation ul li {
+  position: relative;
+  width: 100%;
+  list-style: none;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+
+
+
+.navigation ul li:nth-child(1) {
+  margin-bottom: 40px;
+  pointer-events: none;
+}
+
+.navigation ul li a {
+  position: relative;
+  display: block;
+  width: 100%;
+  display: flex;
+  text-decoration: none;
+  color: var(--white);
+}
+
+
+.navigation ul li a .icon{
+  position: relative;
+  display: block;
+  min-width: 60px;
+  height: 60px;
+  line-height: 75px;
+  text-align: center;
+}
+
+.navigation ul li a img{
+  position: relative;
+  display: block;
+  min-width: 60px;
+  height: 60px;
+  line-height: 75px;
+  text-align: center;
+  margin-top: 10px;
+}
+.icon{
+
+}
+.navigation ul li a .icon ion-icon {
+  font-size: 1.75rem;
+}
+
+.navigation ul li a .title {
+  position: relative;
+  display: block;
+  padding: 0 10px;
+  height: 60px;
+  line-height: 60px;
+  text-align: start;
+  white-space: nowrap;
+}
+
+
+
+/* ===================== Main ===================== */
+.main {
+  position: absolute;
+  width: calc(100% - 300px);
+  left: 300px;
+  min-height: 100vh;
+  
+  transition: 0.5s;
+}
+.main.active {
+  width: calc(100% - 80px);
+  left: 80px;
+}
+
+.topbar {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.toggle {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+
+
+
+.user {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.user img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+body{
+    background: #ebe9e9;
+    
+}
+
+
+
+
+.hero {
+                height: 150%;
+                width: 100%;
+                /* background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('banner.jpg'); */
+               margin-top:-30px;
+                background-position: center;
+                background-size: cover;
+                position: absolute;
+            }
+            .form-box{
+                width:400px;
+                height:600px;
+                position: relative;
+                margin:6% auto;
+                background:#fff;
+                padding:5px;
+                
+                overflow: hidden;
+                border-radius: 50px;
+            }
+            .button-box{
+                width:220px;
+                margin:35px auto;
+                position: relative;
+                box-shadow: 0 0 20px 9px #ff61241f;
+                border-radius: 30px;
+            }
+
+            .toggle-btn{
+                cursor: pointer;
+                background: transparent;
+                outline:none;
+                border:0;
+                padding:10px 30px;
+                position: relative;
+            }
+            #btn{
+                top:0;
+                left:0;
+                position: absolute;
+                width:110px;
+                height:100%;
+                background:linear-gradient(to right,#ff105f,#ffad06);
+                border-radius: 30px;
+                transition: .5s;
+            }
+            .social-icons{
+                margin:30px auto;
+                text-align: center;
+            }
+            .social-icons img{
+                width:30px;
+                margin:0 12px;
+                box-shadow: 0 0 20px 0 #7f7f7f3d;
+                cursor: pointer;
+                border-radius: 50% ;
+            }
+
+            .input-group{
+                top:180px;
+                position: absolute;
+                width:280px;
+                transition:.5s;
+            }
+
+            .input-field{
+                width:100%;
+                padding:10px 0;
+                margin:10px 0;
+                border-left:0;
+                border-right:0;
+                border-top:0;
+                border-bottom:1px solid #999;
+                outline: none;
+                background: transparent;
+            }
+
+            .submit-btn{
+                width:85%;
+                padding:10px 30px;
+                cursor: pointer;
+                display: block;
+                margin:auto;
+                background:linear-gradient(to right,#ff105f,#ffad06);
+                border:0;
+                outline:none;
+                border-radius: 30px;
+            }
+
+            .check-box{
+                margin:30px 10px 30px 0;
+
+            }
+
+            .sp{
+                color:#777;
+                font-size: 12px;
+                bottom:94px;
+                position: absolute;
+            }
+
+            #login{
+                left:50px;
+            }
+            #register{
+                left:450px;
+            }
+
+
+            .input-wrapper {
+    position: relative;
+    
+}
+
+.input-wrapper i {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+}
+
+.input-wrapper input[type="text"],
+.input-wrapper input[type="password"] {
+    padding-left: 30px; 
+    width: 100%;
+    height: 40px;
+    border-bottom: 1px solid #ccc;
+   
+}
+
+.input-wrapper input[type="text"]:focus,
+.input-wrapper input[type="password"]:focus {
+    border-color: #007bff;
+}
+
+
+.input-wrapper input[type="email"] {
+    padding-left: 30px; 
+    width: 100%;
+    height: 40px;
+    border-bottom: 1px solid #ccc;
+    
+}
+
+.input-wrapper input[type="email"]:focus {
+    border-color: #007bff; 
+}
+
+.input-wrapper input[type="date"] {
+    padding-left: 30px; 
+    width: 100%;
+    height: 40px;
+    border-bottom: 1px solid #ccc;
+
+}
+
+.input-wrapper input[type="date"]:focus {
+    border-color: #007bff; 
+}
+
+#message,#message2{
+    position: absolute;
+    
+    color:black;
+    font-size: 12px;
+    display: none;
+}
+
+.custom-alert {
+        padding: 15px;
+        border: 1px solid #d6e9c6;
+        border-radius: 4px;
+        color: #3c763d;
+        background-color: #dff0d8;
+    }
+    
+    
+    
+    <!-- popup message styling starts-->
+    
+    .msg-container{
+        width:100%;
+        height:100vh;
+        background:#3c5077;
+        display:flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .msg-btn{
+        padding:10px 60px;
+        background: #fff;
+        border:0;
+        outline:none;
+        cursor: pointer;
+        font-size: 22px;
+        font-weight: 500;
+        border-radius: 30px;
+      }
+      .popup{
+        width:400px;
+        background: #fff;
+        border-radius: 6px;
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform: translate(-50%,-50%) scale(1);
+        text-align: center;
+        padding: 0 30px 30px;
+        color:#333;
+        visibility: hidden;
+        transition: transform 0.4s, top 0.4s;
+      }
+      .popup img{
+        width:100px;
+        margin-top: -50px;
+        border-radius: 50%;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      }
+      .popup h2{
+        font-size: 38px;
+        font-weight: 500;
+        margin:30px 0 10px;
+
+      }
+      .popup .msg-small-button{
+        width:100%;
+        margin-top: 50px;
+        padding: 10px 0;
+        background: #6fd649;
+        color:#fff;
+        border: 0;
+        outline: none;
+        font-size: 18px;
+        border-radius: 4px;
+        cursor: pointer;
+        box-shadow: 0 5px 5px rgba(0,0,0,0.2);
+      }
+
+      .open-popup{
+        visibility: visible;
+        top:50%;
+        transform: translate(-50%,-50%) scale(1);
+      }
+
+
+      .form__group {
+    display: flex;
+    align-items: center;
+}
+
+.form__group span {
+    margin-right: 10px;
+}
+
+.input__content {
+    position: relative;
+}
+
+.input__group input {
+    width: 100%;
+}
+
+.keywords,.keywords2 {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    overflow: auto; /* Add scrollbar when needed */
+    max-height: 150px; /* Adjust the max-height as needed */
+    overflow-y: auto; /* Always display scrollbar */
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color:#0f172a;
+    padding: 0;
+    margin: 0;
+    display: none; /* Initially hide the dropdown */
+}
+
+.keywords ul,.keywords2 ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.keywords ul li,.keywords2 ul li {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.keywords ul li:hover,.keywords2 ul li:hover {
+  background:var(--primary-color); 
+  color:#fff;
+}
+
+.button-container {
+            text-align: center;
+        }
+
+        .button {
+            display: inline-block;
+        }
+        
+        
+        
+        
+        .card-container {
+    
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping to next row */
+    gap: 20px; /* Space between cards */
+    justify-content: center; /* Center cards with suitable gap */
+}
+
+.card-container .card {
+    width: calc(33% - 20px); /* Three columns layout */
+    background: #fff;
+    text-align: center;
+    padding: 15px 30px 30px 30px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.55);
+    box-sizing: border-box; /* Include padding and border in width */
+}
+
+
+        .card-container .card .top {
+            height: 130px;
+            background: red;
+            color: #fff;
+            padding: 12px 0 0 0;
+            clip-path: polygon(0 0, 100% 0, 100% 53%, 49% 100%, 0 53%);
+        }
+
+        .card-container .card .top .title {
+            font-size: 27px;
+            font-weight: 600;
+        }
+
+        .card-container .card .top .price-sec {
+            margin-top: 2px;
+        }
+
+        .card-container .card .top .price-sec .price {
+            font-size: 40px;
+        }
+
+        .card-container .card .info {
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        .card-container .card .details .plan {
+            margin-top: 25px;
+            font-size: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .card-container .card .details .plan::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            background: #ddd;
+            left: 0;
+            top: -12px;
+        }
+
+        .card-container .card .plan i {
+            color: #2db94d;
+        }
+
+        .card-container .card .plan i.fa-times {
+            color: #cd3241;
+        }
+
+        .card-container .card button {
+            outline: none;
+            border: none;
+            height: 42px;
+            display: block;
+            margin-top: 30px;
+            width: 100%;
+            background: red;
+            border-radius: 3px;
+            letter-spacing: 1px;
+            font-size: 18px;
+            color: #fff;
+            cursor: pointer;
+        }
+        
+        /* Apply different background colors using nth-child selector */
+.card-container .card:nth-child(3n+1) .top,
+.card-container .card:nth-child(3n+1) button {
+    background: #14eb6e;
+}
+
+.card-container .card:nth-child(3n+2) .top,
+.card-container .card:nth-child(3n+2) button {
+    background: #e87130;
+}
+
+.card-container .card:nth-child(3n+3) .top,
+.card-container .card:nth-child(3n+3) button {
+    background: #11BCC3;
+}
+
+.dollar,.decimal{
+font-size:20px;
+}
+
+
+
+#bookSection.active,#cancelSection.active,#cardSection.active{
+      filter: blur(10px);
+      pointer-events: none;
+      user-select: none;
+    }
+    
+    
+    #modalbox{
+    position:absolute;
+    width:100%;
+    height: 100%;
+    
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+    background: #fff;
+    border-radius: 8px;
+    display: none;
+    background:#ebedf9;
+    
+    
+}
+
+.cookies{
+    width: 180px;
+    height:120px;
+    margin-bottom: 30px;
+    margin-left:80px;
+
+}
+
+#continueButton{
+    background: #6fd649;
+    color: #fff;
+    padding: 15px 0;
+    border-radius: 4px;
+    font-size: 20px;
+    font-weight: 500;
+    width: 100%;
+    height:50px;
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    margin-top: 35px;
+
+    box-shadow: 0 10px 15px rgba(0,0,0,0.5);
+
+}
+
+.close-pop{
+    width: 25px;
+    height: 25px;
+    position:absolute;
+    top:25px;
+    right: 25px;
+    cursor: pointer;
+    
+    background: rgb(34, 32, 32);
+    
+}
+
+.wantToSkip{
+    color: blue;
+    font-size: 20px;
+}
+
+.rule {
+    border: 0; /* Remove default border */
+    background-color: rgb(190, 184, 184);
+    height: 0.5px; /* Set height of the line */
+  }
+  
+  
+  #continueButton{
+    background: #6fd649;
+    color: #fff;
+    padding: 12px 0;
+    border-radius: 4px;
+    font-size: 20px;
+    font-weight: 500;
+    width: 120px;
+    
+    height:45px;
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    margin-top: 35px;
+
+    box-shadow: 0 10px 15px rgba(0,0,0,0.5);
+    margin-left:5px;
+    margin-right:10px;
+
+}
+  
+  #skipButton, #skipButton2{
+  
+  
+    color: #fff;
+    padding: 12px 0;
+    border-radius: 4px;
+    font-size: 20px;
+    font-weight: 500;
+    width: 80%;
+    height:45px;
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    margin-top: 35px;
+    
+    align-items:center;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.5);
+    background: #6fd649;
+  }
+  #skipButton:hover,#continueButton:hover, #skipButton2:hover{
+  height:50px;
+  }
+  
+    
+  
+ #aboutUs,#service-section,#contact-section{
+        display:none;
+      }
+   
+    
+.profile-dropdown {
+  position: relative;
+  width: fit-content;
+  position: relative;
+  overflow:hidden;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.profile-dropdown-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  width: 150px;
+  border-radius: 50px;
+  color: var(--black);
+  cursor: pointer;
+  border: 1px solid var(--secondary);
+  transition: box-shadow 0.2s ease-in, background-color 0.2s ease-in,
+    border 0.3s;
+}
+
+.profile-dropdown-btn:hover {
+  background-color: var(--secondary-light-2);
+  box-shadow: var(--shadow);
+}
+
+
+.profile-dropdown-btn span {
+  margin: 0 0.5rem;
+  margin-right: 0;
+}
+
+.profile-dropdown-list {
+  position: absolute;
+  top: 68px;
+  width: 220px;
+  right: 0;
+  background-color: var(--white);
+  border-radius: 10px;
+  max-height: 0;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: max-height 0.5s;
+  z-index: 9999; /* Ensure this is higher than other elements */
+}
+
+.profile-dropdown-list hr {
+  border: 0.5px solid var(--green);
+}
+
+.profile-dropdown-list.active {
+  max-height: 500px;
+  
+}
+
+
+.profile-dropdown-list-item {
+  padding: 0.5rem 0rem 0.5rem 1rem;
+  transition: background-color 0.2s ease-in, padding-left 0.2s;
+}
+
+.profile-dropdown-list-item a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--black);
+}
+
+.profile-dropdown-list-item a i {
+  margin-right: 0.8rem;
+  font-size: 1.1rem;
+  width: 2.3rem;
+  height: 2.3rem;
+  background-color: var(--secondary);
+  color: var(--white);
+  line-height: 2.3rem;
+  text-align: center;
+  margin-right: 1rem;
+  border-radius: 50%;
+  transition: margin-right 0.3s;
+  background:linear-gradient(-45deg,#4481eb,#04befe);
+}
+
+   @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap");
+:root {
+  --primary: #eeeeee;
+  --secondary: #227c70;
+  --green: #82cd47;
+  --secondary-light: rgb(34, 124, 112, 0.2);
+  --secondary-light-2: rgb(127, 183, 126, 0.1);
+  --white: #fff;
+  --black: #393e46;
+
+  --shadow: 0px 2px 8px 0px var(--secondary-light);
+}
+
+.profile-dropdown-list-item:hover {
+  padding-left: 1.5rem;
+  background: linear-gradient(-45deg, #7aaeff, #5ad4ff);
+  
+}
+ 
+#profile{
+   margin-left:35%;
+   margin-top:20px;
+   display:none;
+}
+
+
+.hidden {
+            display: none;
+        }
+
+
+body.dark-mode {
+    background-color: #121212; /* Dark background color */
+    color: #e0e0e0; /* Light text color */
+}
+
+
+
+
+
+  .popup4 {
+      
+        width: 400px;
+        background: #fff;
+        border-radius: 6px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(1);
+        text-align: center;
+        padding: 0 30px 30px;
+        color: #333;
+        visibility: hidden; /* Hidden initially */
+        transition: transform 0.4s ease, top 0.4s ease;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        z-index: 9999999;
+      }
+      
+      /* Class to hide popup */
+      .close-popup4 {
+        visibility: hidden;
+        top: 0;
+        transform: translate(-50%, -50%) scale(0.1);
+      }
+      /* Class to open popup */
+      .open-popup4 {
+        visibility: visible;
+        top: 50%;
+        transform: translate(-50%, -50%) scale(1);
+      }
+      
+       .popup4 img {
+        width: 100px;
+        margin-left:35%;
+        margin-top: -50px;
+        border-radius: 50%;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      }
+      .popup4 h2 {
+        font-size: 38px;
+        font-weight: 500;
+        margin: 30px 0 10px;
+      }
+      .popup4 p {
+        font-size: 16px;
+        color: #333;
+      }
+      .popup4 button {
+        width: 100%;
+        margin-top: 50px;
+        padding: 10px 0;
+        background: #FF4633;
+        font-size: 18px;
+        cursor: pointer;
+        border-radius: 4px;
+        color: #fff;
+        border: 0;
+        outline: none;
+        box-shadow: 0 5px 5px rgba(0,0,0,0.2);
+      }
+      
+      
+      
+      
+      
+      .popup2 {
+      
+        width: 400px;
+        background: #fff;
+        border-radius: 6px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(1);
+        text-align: center;
+        padding: 0 30px 30px;
+        color: #333;
+        visibility: hidden; /* Hidden initially */
+        transition: transform 0.4s ease, top 0.4s ease;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        z-index: 9999999;
+      }
+      
+      /* Class to hide popup */
+      .close-popup2 {
+        visibility: hidden;
+        top: 0;
+        transform: translate(-50%, -50%) scale(0.1);
+      }
+      /* Class to open popup */
+      .open-popup2 {
+        visibility: visible;
+        top: 50%;
+        transform: translate(-50%, -50%) scale(1);
+      }
+      
+       .popup2 img {
+        width: 100px;
+        margin-left:35%;
+        margin-top: -50px;
+        border-radius: 50%;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      }
+      .popup2 h2 {
+        font-size: 38px;
+        font-weight: 500;
+        margin: 30px 0 10px;
+      }
+      .popup2 p {
+        font-size: 16px;
+        color: #333;
+      }
+      .popup2 button {
+        width: 100%;
+        margin-top: 50px;
+        padding: 10px 0;
+        background: #6fd649;
+        font-size: 18px;
+        cursor: pointer;
+        border-radius: 4px;
+        color: #fff;
+        border: 0;
+        outline: none;
+        box-shadow: 0 5px 5px rgba(0,0,0,0.2);
+      }
+      
+      
+      
+      .popup-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Space between buttons */
+    margin-top: 10px;
+  }
+
+  .popup-buttons button {
+    padding: 8px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    height:50px;
+  }
+
+  .popup-buttons button:first-child {
+    background-color: #007bff;
+    color: white;
+  }
+
+  .popup-buttons button:last-child {
+    background-color: #28a745;
+    color: white;
+  }
+
+  .popup-buttons button:hover {
+    opacity: 0.8;
+  }
+  
+
+      
+      
+
+
+    </style>
+    
+    <script th:inline="javascript">
+        function redirectToProfileValidation() {
+        
+        
+         /*<![CDATA[*/
+        var storedEmail = /*[[${stored_email}]]*/ '';
+        var storedDob = /*[[${stored_dob}]]*/ '';
+        var userNames = /*[[${userName}]]*/ '';
+        /*]]>*/
+        
+           
+               
+        console.log(userNames);   
+        // Check if all values are not null, not empty, and exist
+        if (storedEmail && storedDob && userNames) {
+            console.log("chala");   
+            sessionStorage.setItem('stored_email', storedEmail);
+            sessionStorage.setItem('stored_dob', storedDob);
+            sessionStorage.setItem('userName', userNames);
+        }
+        
+       
+            
+           
+            
+            
+        }
+        
+        window.onload = redirectToProfileValidation();
+    </script>
+    
+</head>
+
+<body>
+
+
+<form id="onLoadingSubmit" action="@{/profile_validation}">
+      <input type="hidden" id="previous_updation" value="false"/>
+     
+     
+</form>
+
+
+
+
+ <!-- Popup HTML (initially hidden using "close-popup") for update in profile -->
+    <div class="popup4 close-popup4" id="popup4">
+      <!-- Success image always remains the same -->
+      <img id="popup-icon4" th:src="@{/Images/info.gif}" alt="Warning Icon" />
+
+      <h2 id="popup-title4">Confirmation!</h2>
+      <p id="popup-text4"></p> <!-- Message will be set dynamically -->
+      <!-- Buttons container -->
+  <div class="popup-buttons">
+    <button type="button" onclick="update()">Update</button>
+    <button type="button" onclick="cancel()">Cancel</button>
+  </div>
+    </div>
+    
+    
+    
+    
+    <!-- ye popup khulehga -->
+    <div class="popup2 close-popup2" id="popup2">
+      <!-- Success image always remains the same -->
+      <img id="popup-icon2" th:src="@{/Images/tick.png}" alt="Warning Icon" />
+
+      <h2 id="popup-title2">Success!</h2>
+      <p id="popup-text2"></p> <!-- Message will be set dynamically -->
+      <button type="button" onclick="closePopUp2()">Ok</button>
+    </div>
+    
+    
+
+                 
+                 <!-- yahan par likho -->
+                 
+
+                
+
+                
+                  
+                  
+                  
+                  
+    
+     <!-- things i need to send to cancel -->
+     
+    <form id="hidden-form-to-cancel" th:action="@{/cancel_ticket_with_popup}" method="POST" style="display: none;">
+    <input type="hidden" name="uniqueId">
+    </form>
+    
+    <script>
+    
+   
+    
+    </script>
+    
+    <!-- things ended -->
+                  
+                  
+                  
+    
+    
+    
+    
+     <!-- ========================= I have added these bakchodi ==================== -->   
+    
+    
+    <form id="hidden-form" th:action="@{/book_2}" method="POST" style="display: none;">
+    <input type="hidden" name="flightName">
+    <input type="hidden" name="price">
+    <input type="hidden" name="arrival">
+    <input type="hidden" name="departure">
+    <input type="hidden" name="seatsAvailable">
+   </form>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var bookButtons = document.querySelectorAll('.book-now');
+      var hiddenForm = document.getElementById('hidden-form');
+      
+      bookButtons.forEach(function(button) {
+        button.addEventListener('click', function(event) {
+          var card = button.closest('.card');
+          
+          var flightName = card.querySelector('.title').textContent;
+          var price = card.querySelector('.price').textContent;
+          var arrival = card.querySelector('.arrival').textContent;
+          var departure = card.querySelector('.departure').textContent;
+          var seatsAvailable = card.querySelector('.seats-available').textContent;
+          
+          console.log(flightName);
+          console.log(price);
+          console.log(arrival);
+          
+          
+          hiddenForm.querySelector('input[name="flightName"]').value = flightName;
+          hiddenForm.querySelector('input[name="price"]').value = price;
+          hiddenForm.querySelector('input[name="arrival"]').value = arrival;
+          hiddenForm.querySelector('input[name="departure"]').value = departure;
+          hiddenForm.querySelector('input[name="seatsAvailable"]').value = seatsAvailable;
+          
+          hiddenForm.submit();
+        });
+      });
+    });
+  </script>
+  
+  
+       <!-- ========================= Ended ==================== -->     
+       
+       
+       
+       
+        <!-- ========================= message box starts ==================== -->
+        
+        
+        
+        <div id="modalbox">
+            <img  th:src="@{/Images/pop.png}" alt="cokies" class="cookies" style="margin-top:10px;margin-left:40%">
+            
+            <p style=" font-size: 20px; margin-left:0px; margin-top:20px;"> Your Bookings:</p>
+
+            
+            <hr class="rule" style="margin-top: 15px;width:100%">
+            
+            
+           <!-- Section to be cancelled to -->
+                  <section id="cancelSection" class="section__container booking__container" th:if="${previousBookings != null}" style="margin-top: 10px;border-radius: 5px;display:none;">
+                  <h1 style="margin-top:-50px;color:#4070F4;">List of Your Bookings:</h1>
+   <hr style="margin-top:5px">
+   <br>
+   
+    <div class="card-container">
+      <div class="card one" th:each="entry : ${previousBookings.entrySet()}">
+        <div class="top">
+            <div class="title" th:text="${entry.value[0].flightId + ' ' + entry.value[0].flightName}"></div>
+
+            <div class="price-sec">
+                <!-- If needed, you can add price information here -->
+                <span class="dollar">&#8377;</span>
+                <span class="price" th:text="${entry.value[0].totalPrice}"></span>
+                <span class="decimal">.99</span>
+            </div>
+        </div>
+        <div class="details">
+        
+            <div class="plan">
+                <center><span style="margin-left:80px;" class="arrival" th:text=" '' + ${entry.value[0].from_location} + '  To  ' + ${entry.value[0].to_location}"></span></center>
+                <i class="fas fa-plane"></i>
+            </div>
+            
+            <div class="plan">
+                Arrival: <span class="arrival" th:text=" '' + ${entry.value[0].parsedArrivalDate} + ' ,  ' + ${entry.value[0].arrivalTime}"></span>
+                <i class="fas fa-check"></i>
+            </div>
+            <div class="plan">
+                Departure: <span class="departure" th:text="${entry.value[0].parsedDepartDate} + ' ,  ' + ${entry.value[0].departTime}"></span>
+                <i class="fas fa-check"></i>
+            </div>
+        </div>
+
+        <div class="info">Passengers Information:</div>
+
+        <div class="details">
+            <div class="plan" th:each="passenger, i : ${entry.value}">
+                <span th:text="'Passenger ' + (${i.index + 1})"></span>:
+                <span class="seats-available" th:text="${passenger.firstName} + ' ' + ${passenger.lastName}"></span>
+                <i class="fas fa-times"></i>
+            </div>
+        </div>
+        
+        
+        
+           <button type="submit" class="cancel-button" style="background: #FF3131;" th:data-entry-id="${entry.key}" onclick="showConfirmation(event);">Cancel</button>
+        
+        
+        <!-- things i need to send to cancel -->
+     
+    <form id="hidden-form-to-cancel" th:action="@{/cancel_ticket}" method="POST" style="display: none;">
+    <input type="hidden" name="uniqueId">
+    </form>
+    
+    
+           <script>
+           
+           function showConfirmation(event){
+                swal({
+	  title: "Are you sure?",
+	  text: "You want to cancel your booking!",
+	  icon: "warning",
+	  buttons: true,
+	  dangerMode: true,
+	})
+	.then((willDelete) => {
+	
+	  if (willDelete) {
+	     cancelTicket(event);
+		
+	  } 
+	  
+	  else {
+		swal("Cancelled Successfully ✅");
+	  }
+	});
+           }
+           
+    
+    function cancelTicket(event){
+        var cancelButton = event.target;
+    var card = cancelButton.closest('.card');
+    var entryId = card.querySelector('.cancel-button').getAttribute('data-entry-id');
+    var hiddenForm = document.getElementById('hidden-form-to-cancel');
+    hiddenForm.querySelector('input[name="uniqueId"]').value = entryId; // Set the entry ID value in the hidden form input
+    hiddenForm.submit(); // Submit the form
+    }
+    
+   </script>
+        
+    </div>
+    
+    
+    
+    
+    
+
+
+        
+        <div th:if="${#lists.isEmpty(previousBookings.entrySet())}">
+               <h3 style="color:#FF3131;">No Previous Bookings Found</h3>
+        </div>
+    </div> 
+    <hr style="margin-top:20px;">  
+    
+    </section>
+           
+           
+            
+           
+  
+  
+ 
+  
+           
+            
+            <div>
+            <button type="submit" onclick="cancelModal()" id="skipButton">See My Bookings</button>
+            </div>
+            
+             <div>
+            <button type="submit" onclick="closeModal()" id="skipButton2" style="display:none">Close My Bookings</button>
+            </div>
+            
+            <br></br>
+            <br></br>
+            <br></br>
+            
+            
+             
+            
+            
+  
+            
+            
+            
+            <img  th:src="@{/Images/close.png}" alt="close" class="close-pop" onclick="closeModal();">
+            
+        </div>
+        
+        
+        <form>
+        <input type="hidden" th:value="${isCancelled}" id="ok">
+        </form>
+
+
+
+        <script>
+        
+            
+
+            let modelbox = document.getElementById("modalbox");
+            
+
+        function showModal(){
+        
+       
+              var isRefreshing=false;
+              var here2=document.getElementById("cancelSection");
+              var here=document.getElementById("ok");
+              console.log(here.value);
+             
+              
+              if (here.value && isRefreshing===false) {
+                     
+               modelbox.style.display="block";
+                     
+                     
+                     swal({
+        title: "Success!",
+        text: "Your Booking is cancelled!",
+        icon: "success",
+        buttons: {
+            confirm: {
+                text: "OK",
+                value: true,
+                visible: true,
+                className: "swal-button--confirm",
+                closeModal: true
+            }
+        }
+    }).then((willConfirm) => {
+        if (willConfirm) {
+            f();
+        }
+    });
+                
+              }
+              
+              
+   
+    
+             else{
+                     modelbox.style.display="block";
+              }
+
+         }
+         
+         
+        
+         
+        function f() {
+             // Your function logic here
+             var here2=document.getElementById("cancelSection");
+            
+             here2.classList.remove("active");
+            here2.style.display="block";
+            here2.classList.remove("active");
+    } 
+         
+    function closeModal(){
+      var here1=document.getElementById("cancelSection");
+    
+      here1.style.display="none";
+      var here2=document.getElementById("skipButton2");
+      var here3=document.getElementById("skipButton");
+      here3.style.display="block";
+      here2.style.display="none";
+     
+            }
+            
+            
+     function cancelModal(){
+     
+         var can=document.getElementById("cancelSection");
+         var here3=document.getElementById("skipButton2");
+         can.style.display="block";
+         here3.style.display="block";
+         modelbox.style.display="block";
+         var ele = document.getElementById("skipButton");
+         ele.style.display="none";
+         here3.style.marginLeft = "10%"; 
+         ele.style.marginLeft = "10%"; 
+     
+     }
+        </script>
+                
+
+        
+        
+        <!-- ========================= message box ended ==================== -->
+   
+
+               <!-- Include your scripts here -->
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        // Check if there's a message in the flash attributes
+        var message_email = /*[[${msg_email}]]*/ null;
+        
+        console.log(message_email);
+        if (message_email && message_email.trim().length > 0) {
+        
+            // Display the message using SweetAlert
+            if (message_email === "Maximum Capacity of Flight is Reached!") {
+                swal({
+                    title: "Failure!",
+                    text: message,
+                    icon: "error",
+                    buttons: {
+                        confirm: {
+                            text: "OK",
+                            value: true,
+                            visible: true,
+                            className: "swal-button--confirm",
+                            closeModal: true
+                        }
+                    }
+                  });
+            } 
+            else if(message_email === "Welcome to FlyHighHub.com!!!"){
+            }
+            else{
+                swal("Success",message_email,"success");
+            }
+        }
+        /*]]>*/
+    </script>
+            
+            
+       
+        <!-- Include your scripts here -->
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        // Check if there's a message in the flash attributes
+        var message = /*[[${message_of_updation}]]*/ null;
+        
+        console.log(message);
+        if (message && message.trim().length > 0) {
+                    var popup2 = document.getElementById("popup2");
+          var popupText2 = document.getElementById("popup-text2");
+
+          // Set the message dynamically
+          popupText2.innerText = message;
+          
+          
+
+          // Show the popup by removing the close-popup class and updating styles
+          popup2.classList.add("open-popup2");
+          
+          
+          
+              var here2=document.getElementById("cancelSection");
+              
+              var here3=document.getElementById("cardSection");
+              
+              var here=document.getElementById("ok");
+              
+              if(here.value){
+          
+               here2.classList.add("active");
+               here3.classList.add("active");
+               
+          }
+          
+          else{
+               here3.classList.add("active");
+          }
+             
+          
+          
+        
+        }
+        /*]]>*/
+    </script>
+    
+    
+    <script>
+    function closePopUp2() {
+          var popup = document.getElementById("popup2");
+          
+          popup.classList.add("close-popup2");
+          popup.classList.remove("open-popup2");
+          
+          
+          
+              var here2=document.getElementById("cancelSection");
+              
+              var here3=document.getElementById("cardSection");
+              
+              var here=document.getElementById("ok");
+              
+              if(here.value){
+          
+               
+               here2.classList.remove("active");
+               here3.classList.remove("active");
+               
+          }
+          
+          else{
+              
+               here3.classList.remove("active");
+          }
+             
+          
+      }
+    </script>
+        
+       
+        
+        
+         <!-- Include your scripts here -->
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        // Check if there's a message in the flash attributes
+        var message = /*[[${message}]]*/ null;
+        
+        console.log(message);
+        if (message && message.trim().length > 0) {
+        
+        
+        
+        showModal();
+        
+        
+        
+        
+        
+        
+        
+        
+        
+            // Display the message using SweetAlert
+            if (message === "Maximum Capacity of Flight is Reached!") {
+                swal({
+                    title: "Failure!",
+                    text: message,
+                    icon: "error",
+                    buttons: {
+                        confirm: {
+                            text: "OK",
+                            value: true,
+                            visible: true,
+                            className: "swal-button--confirm",
+                            closeModal: true
+                        }
+                    }
+                  });
+            } 
+            else if(message === "Welcome to FlyHighHub.com!!!"){
+            }
+            else{
+                swal("Success",message,"success");
+            }
+        }
+        /*]]>*/
+    </script>
+    
+        
+        
+        
+        <!-- ========================= For signout ==================== -->
+    <!-- Include your scripts here -->
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        // Check if there's a message in the flash attributes
+        var messagespx = /*[[${messageLogOut}]]*/ null;
+        
+        console.log(messagespx);
+        
+        console.log(messagespx);
+        if (messagespx && messagespx.trim().length > 0) {
+        
+                    // Display the message using SweetAlert
+            if (messagespx === "Please Log In First!") {
+                swal({
+                    title: "Failure!",
+                    text: messagespx,
+                    icon: "error",
+                    buttons: {
+                        confirm: {
+                            text: "OK",
+                            value: true,
+                            visible: true,
+                            className: "swal-button--confirm",
+                            closeModal: true
+                        }
+                    }
+                  });
+            } else {
+                swal({
+                    title: "Success!",
+                    text: messagespx,
+                    icon: "success",
+                    buttons: {
+                        confirm: {
+                            text: "OK",
+                            value: true,
+                            visible: true,
+                            className: "swal-button--confirm",
+                            closeModal: true
+                        }
+                    }
+                });
+            }
+            
+         }
+        
+        /*]]>*/
+    </script>
+        
+
+       
+
+
+       
+        
+
+   
+
+    <!-- ====== ionicons ======= -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    
+
+
+
+    <!-- Override styles here -->
+    <style>
+        /* More specific selector to override predefined styles */
+        .swal-button--confirm {
+            background-color: #4CAF50 !important; /* Customize the color as needed */
+            color: white !important;
+        }
+    </style>
+    
+    
+   
+    
+</body>
+
+</html>
