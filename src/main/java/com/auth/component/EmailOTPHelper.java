@@ -35,7 +35,7 @@ public class EmailOTPHelper {
 
             Message msg = new MimeMessage(session);
 
-            msg.setFrom(new InternetAddress("suyashkhare9698@gmail.com",false));
+            msg.setFrom(new InternetAddress("YOUR_MAIL_ID",false));
             msg.setRecipients(Message.RecipientType.TO,InternetAddress.parse(email));
             msg.setSubject("OTP Authentication");
             msg.setSentDate(new Date());
