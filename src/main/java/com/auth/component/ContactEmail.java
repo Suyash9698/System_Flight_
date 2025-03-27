@@ -26,7 +26,7 @@ public class ContactEmail {
             // Create a session with authentication
             Session session = Session.getInstance(props, new Authenticator() {
                 protected PasswordAuthentication getPasswordAuthentication() {
-                    return new PasswordAuthentication("suyashkhare9698@gmail.com", "pugchqxeyiuzdagi");
+                    return new PasswordAuthentication("YOUR_MAIL_ID", "YOUR_SECRET_KEY");
                 }
             });
 
