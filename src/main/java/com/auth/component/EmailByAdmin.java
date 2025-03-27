@@ -29,7 +29,8 @@ public class EmailByAdmin {
             {
                 protected PasswordAuthentication getPasswordAuthentication()
                 {
-                    return new PasswordAuthentication("suyashkhare9698@gmail.com","pugchqxeyiuzdagi");
+                   
+                    return new PasswordAuthentication("YOUR_MAIL_ID", "YOUR_SECRET_KEY");
                 }
             });
 
