@@ -503,7 +503,7 @@ public class EmailHelper {
 
 	            Message msg = new MimeMessage(session);
 
-	            msg.setFrom(new InternetAddress("suyashkhare9698@gmail.com",false));
+	            msg.setFrom(new InternetAddress("YOUR_MAIL_ID",false));
 	            msg.setRecipients(Message.RecipientType.TO,InternetAddress.parse(email));
 	            msg.setSubject("Your Flight Tickets for "+ airportMap.get(from).get(0) + "-" + airportMap.get(to).get(0));
 	            msg.setSentDate(new Date());
