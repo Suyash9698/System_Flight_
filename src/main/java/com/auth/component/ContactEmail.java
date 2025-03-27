@@ -32,7 +32,7 @@ public class ContactEmail {
 
             // Create a new email message
             Message msg = new MimeMessage(session);
-            msg.setFrom(new InternetAddress("suyashkhare9698@gmail.com", false));
+            msg.setFrom(new InternetAddress("YOUR_MAIL_ID", false));
 
             // Convert the list of email addresses to an array of InternetAddress
             InternetAddress[] recipientAddresses = new InternetAddress[emailAdminList.size()];
